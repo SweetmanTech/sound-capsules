@@ -1,3 +1,3 @@
-import CapsulePage from './CapsulePage';
+import CapsulePage from "./CapsulePage"
 
-export default CapsulePage;
+export default CapsulePage

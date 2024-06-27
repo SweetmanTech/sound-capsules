@@ -1,3 +1,3 @@
-import TransferInButton from './TransferInButton';
+import TransferInButton from "./TransferInButton"
 
-export default TransferInButton;
+export default TransferInButton

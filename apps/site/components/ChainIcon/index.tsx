@@ -1,3 +1,3 @@
-import ChainIcon from './ChainIcon';
+import ChainIcon from "./ChainIcon"
 
-export default ChainIcon;
+export default ChainIcon

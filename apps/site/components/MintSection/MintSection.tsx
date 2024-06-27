@@ -19,4 +19,4 @@ const MintSection = () => {
 	);
 };
 
-export default MintSection;
+export default MintSection

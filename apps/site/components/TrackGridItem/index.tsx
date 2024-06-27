@@ -1,3 +1,3 @@
-import TrackGridItem from './TrackGridItem';
+import TrackGridItem from "./TrackGridItem"
 
-export default TrackGridItem;
+export default TrackGridItem
