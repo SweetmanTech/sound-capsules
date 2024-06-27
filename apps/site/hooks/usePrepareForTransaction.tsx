@@ -1,30 +1,26 @@
-import { CHAIN_ID } from '@/lib/consts';
-import useConnectedWallet from './useConnectedWallet';
-import { usePrivy } from '@privy-io/react-auth';
+import { CHAIN_ID } from "@/lib/consts"
+import useConnectedWallet from "./useConnectedWallet"
+import { usePrivy } from "@privy-io/react-auth"
 
 const usePrepareForTx = () => {
-	const {
-		chainId: privyChainId,
-		wallet,
-		connectedWallet,
-	} = useConnectedWallet();
-	const { authenticated, login, ready } = usePrivy();
+  const { chainId: privyChainId, wallet, connectedWallet } = useConnectedWallet()
+  const { authenticated, login, ready } = usePrivy()
 
-	const prepare = async (chainId = CHAIN_ID) => {
-		if (!wallet || !connectedWallet || !authenticated || !ready) {
-			login();
-			return false;
-		}
-		if (privyChainId != chainId) {
-			await wallet.switchChain(chainId);
-			return false;
-		}
-		return true;
-	};
+  const prepare = async (chainId = CHAIN_ID) => {
+    if (!wallet || !connectedWallet || !authenticated || !ready) {
+      login()
+      return false
+    }
+    if (privyChainId != chainId) {
+      await wallet.switchChain(chainId)
+      return false
+    }
+    return true
+  }
 
-	return {
-		prepare,
-	};
-};
+  return {
+    prepare,
+  }
+}
 
-export default usePrepareForTx;
+export default usePrepareForTx

@@ -1,3 +1,3 @@
-import TrackImage from './TrackImage';
+import TrackImage from "./TrackImage"
 
-export default TrackImage;
+export default TrackImage

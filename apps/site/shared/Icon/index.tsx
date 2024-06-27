@@ -1,24 +1,24 @@
-import { Icons } from './resolvers';
+import { Icons } from "./resolvers"
 
-export type IconsType = keyof typeof Icons;
+export type IconsType = keyof typeof Icons
 
 interface IIcon {
-	name: IconsType;
-	size: number;
-	className?: string;
-	color?: string;
+  name: IconsType
+  size: number
+  className?: string
+  color?: string
 }
 
 const Icon = ({ name, size, className, color }: IIcon) => {
-	const IconSVG = Icons[name];
+  const IconSVG = Icons[name]
 
-	return <IconSVG size={size} className={className} color={color} />;
-};
+  return <IconSVG size={size} className={className} color={color} />
+}
 
 const defaultProps: Partial<IIcon> = {
-	size: 25,
-};
+  size: 25,
+}
 
-Icon.defaultProps = defaultProps;
+Icon.defaultProps = defaultProps
 
-export default Icon;
+export default Icon

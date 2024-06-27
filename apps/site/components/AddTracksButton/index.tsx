@@ -1,3 +1,3 @@
-import AddTracksButton from './AddTracksButton';
+import AddTracksButton from "./AddTracksButton"
 
-export default AddTracksButton;
+export default AddTracksButton

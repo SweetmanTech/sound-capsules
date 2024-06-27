@@ -1,3 +1,3 @@
-import ManagePage from './ManagePage';
+import ManagePage from "./ManagePage"
 
-export default ManagePage;
+export default ManagePage
