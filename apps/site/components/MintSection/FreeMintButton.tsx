@@ -9,15 +9,13 @@ import useZoraPurchasePresale from "@/hooks/useZoraPurchasePresale"
 import useCanMint from "@/hooks/useCanMint"
 
 const FreeMintButton = ({ quantity }: { quantity: number }) => {
-	const { canMint } = useCanMint();
-	const { login } = usePrivy();
-	const { purchase } = useZoraPurchasePresale();
-	const { push } = useRouter();
-	const [minting, setMinting] = useState(false);
-	const price = parseFloat(
-		formatEther(BigNumber.from(PRESALE_PRICE).add(ZORA_FEE) as any)
-	);
-	const displayPrice = quantity * price;
+  const { canMint } = useCanMint()
+  const { login } = usePrivy()
+  const { purchase } = useZoraPurchasePresale()
+  const { push } = useRouter()
+  const [minting, setMinting] = useState(false)
+  const price = parseFloat(formatEther(BigNumber.from(PRESALE_PRICE).add(ZORA_FEE) as any))
+  const displayPrice = quantity * price
 
   const handleSuccessRedirect = (tokenId?: string) => {
     setTimeout(() => {
@@ -70,4 +68,4 @@ const FreeMintButton = ({ quantity }: { quantity: number }) => {
   )
 }
 
-export default FreeMintButton;
+export default FreeMintButton
