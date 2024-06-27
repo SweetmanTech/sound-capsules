@@ -27,3 +27,5 @@ export const CATALOGCOSIGN_ADDRESS = IS_TESTNET
   : "0x15e57847c5eee553e0eaa247de0dffef28dd68eb" // base
 
 export const gateways = ["cloudflare-ipfs.com", "nftstorage.link", "ipfs.io"]
+
+export const Cybernounish = IS_TESTNET ? "0xb875B5Cc6587ab6c898a972F70d7b657399F8554" : "0xf33d28304ba8ff1886ae84ea3f68c055d46c78fa"
