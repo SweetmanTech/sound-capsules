@@ -8,7 +8,7 @@ import { PRESALE_PRICE, ZORA_FEE } from '@/lib/consts';
 import useZoraPurchasePresale from '@/hooks/useZoraPurchasePresale';
 import useCanMint from '@/hooks/useCanMint';
 
-const WhitelistMintButton = ({ quantity }: { quantity: number }) => {
+const FreeMintButton = ({ quantity }: { quantity: number }) => {
 	const { canMint } = useCanMint();
 	const { login } = usePrivy();
 	const { purchase } = useZoraPurchasePresale();
@@ -70,4 +70,4 @@ const WhitelistMintButton = ({ quantity }: { quantity: number }) => {
 	);
 };
 
-export default WhitelistMintButton;
+export default FreeMintButton;
