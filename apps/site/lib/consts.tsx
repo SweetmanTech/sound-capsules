@@ -28,4 +28,28 @@ export const CATALOGCOSIGN_ADDRESS = IS_TESTNET
 
 export const gateways = ["cloudflare-ipfs.com", "nftstorage.link", "ipfs.io"]
 
-export const Cybernounish = IS_TESTNET ? "0xb875B5Cc6587ab6c898a972F70d7b657399F8554" : "0xf33d28304ba8ff1886ae84ea3f68c055d46c78fa"
+export const ZORA_IPFS_GATEWAY = "magic.decentralized-content.com"
+
+export const TRACKS = [
+  {
+    collectionAddress: IS_TESTNET
+      ? "0xb875B5Cc6587ab6c898a972F70d7b657399F8554"
+      : "0xf33d28304ba8ff1886ae84ea3f68c055d46c78fa",
+    tokenId: 1,
+    chainId: IS_TESTNET ? baseSepolia.id : base.id,
+  },
+  {
+    collectionAddress: IS_TESTNET
+      ? "0x8dBb68049bf9485659Af562C44C1aE585e6C9986"
+      : "0xf33d28304ba8ff1886ae84ea3f68c055d46c78fa",
+    tokenId: 1,
+    chainId: IS_TESTNET ? baseSepolia.id : base.id,
+  },
+  {
+    collectionAddress: IS_TESTNET
+      ? "0x3d53DbB1c38Aed748869Bc43E4D1A81a88Ec3859"
+      : "0xf836ac93fff3b2ef4cc9c64747fa29dba6805520",
+    tokenId: 2,
+    chainId: IS_TESTNET ? baseSepolia.id : base.id,
+  },
+]

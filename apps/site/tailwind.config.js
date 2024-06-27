@@ -13,6 +13,9 @@ module.exports = {
           DEFAULT: "#888888",
           overlay: "rgba(116, 116, 116, 0.4)",
         },
+        purple: {
+          DEFAULT: "#8873FF",
+        },
       },
     },
     container: {
