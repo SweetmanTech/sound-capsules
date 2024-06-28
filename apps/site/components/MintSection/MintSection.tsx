@@ -1,16 +1,13 @@
-import { useState } from "react"
+import { useTrackMint } from "@/providers/MintProvider"
 import FreeMintButton from "./FreeMintButton"
-import Quantity from "./Quantity"
-import useZoraPurchasePresale from "@/hooks/useZoraPurchasePresale"
 
 const MintSection = () => {
-  const { totalSupply } = useZoraPurchasePresale()
-  const [quantity, setQuantity] = useState(1)
-
+  const { selectedTracks } = useTrackMint()
   return (
-    <div className="space-y-6">
-      <Quantity quantity={quantity} setQuantity={setQuantity} totalSupply={totalSupply} />
-      <FreeMintButton quantity={quantity} />
+    <div className="flex flex-col items-center">
+      <p className="font-size-small">Songs</p>
+      <p className="text-black text-[24px] mb-2">{selectedTracks?.length}</p>
+      <FreeMintButton />
     </div>
   )
 }

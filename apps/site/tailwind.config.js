@@ -16,6 +16,13 @@ module.exports = {
         purple: {
           DEFAULT: "#8873FF",
         },
+        brown: {
+          DEFAULT: "#CE5347",
+          light: "#EE866B",
+        },
+        yello: {
+          DEFAULT: "#C1FF8B",
+        },
       },
     },
     container: {

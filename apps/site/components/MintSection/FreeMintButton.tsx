@@ -8,14 +8,14 @@ import { PRESALE_PRICE, ZORA_FEE } from "@/lib/consts"
 import useZoraPurchasePresale from "@/hooks/useZoraPurchasePresale"
 import useCanMint from "@/hooks/useCanMint"
 
-const FreeMintButton = ({ quantity }: { quantity: number }) => {
+const FreeMintButton = () => {
   const { canMint } = useCanMint()
   const { login } = usePrivy()
   const { purchase } = useZoraPurchasePresale()
   const { push } = useRouter()
   const [minting, setMinting] = useState(false)
   const price = parseFloat(formatEther(BigNumber.from(PRESALE_PRICE).add(ZORA_FEE) as any))
-  const displayPrice = quantity * price
+  const displayPrice = price
 
   const handleSuccessRedirect = (tokenId?: string) => {
     setTimeout(() => {
@@ -46,7 +46,7 @@ const FreeMintButton = ({ quantity }: { quantity: number }) => {
     }
     setMinting(true)
     const toastId = toast("Purchasing…")
-    const receipt = await purchase(quantity)
+    const receipt = await purchase(1)
     if (receipt) {
       handleSuccess(toastId, receipt)
       return
