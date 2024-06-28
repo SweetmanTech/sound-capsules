@@ -31,7 +31,7 @@ const TrackImage = ({ track }: { track: Track }) => {
         className="absolute bottom-4 right-2 inline-flex justify-center items-center w-10 h-10 text-white rounded-full bg-gray-overlay backdrop-blur-xl"
         onClick={() => togglePlay(track)}
       >
-        {isPlaying && trackActive ? <Icon name="pause" raw /> : <Icon name="play" raw />}
+        {isPlaying && trackActive ? <Icon name="pause" /> : <Icon name="play" />}
       </button>
     </div>
   )
