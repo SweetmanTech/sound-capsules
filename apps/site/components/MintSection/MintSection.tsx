@@ -1,5 +1,5 @@
 import { useState } from "react"
-import FreeMintButton from "./FreeMintButton"
+import MintButton from "./MintButton"
 import Quantity from "./Quantity"
 import useZoraPurchasePresale from "@/hooks/useZoraPurchasePresale"
 
@@ -10,7 +10,7 @@ const MintSection = () => {
   return (
     <div className="space-y-6">
       <Quantity quantity={quantity} setQuantity={setQuantity} totalSupply={totalSupply} />
-      <FreeMintButton quantity={quantity} />
+      <MintButton quantity={quantity} />
     </div>
   )
 }
