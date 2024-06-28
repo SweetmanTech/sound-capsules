@@ -1,6 +1,6 @@
 import { Icons } from "./resolver"
 
-interface IIcon {
+type IIcon = {
   name: keyof typeof Icons
   color?: string
   size: number
