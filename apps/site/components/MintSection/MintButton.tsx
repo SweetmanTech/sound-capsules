@@ -16,8 +16,8 @@ const MintButton = () => {
   const { push } = useRouter()
   const [minting, setMinting] = useState(false)
   const price = parseFloat(formatEther(BigNumber.from(PRICE).add(ZORA_FEE) as any))
-  const displayPrice = price
   const { selectedTracks } = useTrackMint()
+  const displayPrice = price + selectedTracks.length * price
 
   const handleSuccessRedirect = (tokenId?: string) => {
     setTimeout(() => {
