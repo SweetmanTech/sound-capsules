@@ -1,3 +1,3 @@
-import TransferInPage from './TransferInPage';
+import TransferInPage from "./TransferInPage"
 
-export default TransferInPage;
+export default TransferInPage

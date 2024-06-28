@@ -1,7 +1,7 @@
-import { Track } from './types';
+import { Track } from "./types"
 
 const getTrackId = (track: Track) => {
-	return JSON.stringify(track);
-};
+  return JSON.stringify(track)
+}
 
-export default getTrackId;
+export default getTrackId

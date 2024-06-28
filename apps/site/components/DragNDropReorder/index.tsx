@@ -1,3 +1,3 @@
-import DragNDropReorder from './DragNDropReorder';
+import DragNDropReorder from "./DragNDropReorder"
 
-export default DragNDropReorder;
+export default DragNDropReorder

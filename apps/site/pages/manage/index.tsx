@@ -1,3 +1,3 @@
-import ManagePage from '@/components/ManagePage';
+import ManagePage from "@/components/ManagePage"
 
-export default ManagePage;
+export default ManagePage

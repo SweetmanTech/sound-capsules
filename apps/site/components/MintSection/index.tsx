@@ -1,3 +1,3 @@
-import MintSection from './MintSection';
+import MintSection from "./MintSection"
 
-export default MintSection;
+export default MintSection
