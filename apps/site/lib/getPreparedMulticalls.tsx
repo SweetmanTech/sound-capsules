@@ -22,15 +22,15 @@ const getPreparedMulticalls = async (signingAddress: Address, tracks: any) => {
 
   const tbaInitializationCall = getInitializeCall(tba)
 
-  // const zoraTracksCalls = tracks.map((track: any) => getZoraMintWithRewardsCall(track.token.contractAddress, tba, track.token.id))
-  // const zoraTrackCallsValue = zoraTracksCalls.reduce((acc: BigNumber, cur: any) => acc.add(cur.value), BigNumber.from(0));
+  const zoraTracksCalls = tracks.map((track: any) => getZoraMintWithRewardsCall(track.token.contractAddress, tba, track.token.id))
+  const zoraTrackCallsValue = zoraTracksCalls.reduce((acc: BigNumber, cur: any) => acc.add(cur.value), BigNumber.from(0));
   const totalPrice = zoraPrice
     // .add(zoraTrackCallsValue)
     
   const hexValue = totalPrice.toHexString()
   const calls = [
     ...tbaCalls,
-    // tbaInitializationCall,
+    tbaInitializationCall,
     // ...zoraTracksCalls,
   ]
   const response = { hexValue, calls }

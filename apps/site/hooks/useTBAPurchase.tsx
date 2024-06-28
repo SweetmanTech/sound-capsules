@@ -8,7 +8,9 @@ import { usePrivy } from "@privy-io/react-auth"
 import { CHAIN, CHAIN_ID, MULTICALL3_ADDRESS } from "@/lib/consts"
 import usePrivyWalletClient from "./usePrivyWalletClient"
 import { getPublicClient } from "@/lib/clients"
-import abi from "@/lib/abi/multicall3.json"
+import multicallAbi from "@/lib/abi/multicall3.json"
+import usePrivyEthersSigner from "./usePrivyEthersSigner"
+import { Contract } from "ethers"
 
 const useTBAPurchase = () => {
   const { connectedWallet } = useConnectedWallet()
@@ -16,7 +18,9 @@ const useTBAPurchase = () => {
   const { canMint } = useCanMint()
   const { login } = usePrivy()
   const { walletClient } = usePrivyWalletClient(CHAIN)
+  const { signer } = usePrivyEthersSigner()
 
+  const multicallContract = new Contract(MULTICALL3_ADDRESS, multicallAbi, signer)
   const purchase = async (tracks: any) => {
     try {
         if (!canMint || !walletClient) {
@@ -28,27 +32,15 @@ const useTBAPurchase = () => {
       const prepared = await getPreparedMulticalls(connectedWallet as Address, tracks)
       const { hexValue, calls } = prepared as any
 
-      console.log("ZIAD", calls, hexValue)
-      const publicClient = getPublicClient(CHAIN_ID)
+      const transferFromGasFee = 40000 * 1
+      const registryGasFee = 127777 * 1
 
-      const txHash = await walletClient.writeContract({
-        account: connectedWallet as Address,
-        address: MULTICALL3_ADDRESS,
-        abi,
-        functionName: 'aggregate3Value',
-        chain: CHAIN,
-        args: [calls],
-        value: hexValue
+      const tx = await multicallContract.aggregate3Value(calls, {
+        value: hexValue,
+        gasLimit: 300000 + transferFromGasFee + registryGasFee,
       })
-
-      let transaction
-      if (txHash) {
-        transaction = await publicClient.waitForTransactionReceipt({
-          hash: txHash,
-        })
-      }
-      setLoading(false)
-      return ""
+      const receipt = await tx.wait()
+      return receipt
     } catch (err) {
       setLoading(false)
       handleTxError(err)
