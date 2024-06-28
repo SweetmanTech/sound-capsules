@@ -1,5 +1,5 @@
 import { useTrackMint } from "@/providers/MintProvider"
-import FreeMintButton from "./FreeMintButton"
+import MintButton from "./MintButton"
 
 const MintSection = () => {
   const { selectedTracks } = useTrackMint()
@@ -7,7 +7,7 @@ const MintSection = () => {
     <div className="flex flex-col items-center">
       <p className="font-size-small">Songs</p>
       <p className="text-black text-[24px] mb-2">{selectedTracks?.length}</p>
-      <FreeMintButton />
+      <MintButton />
     </div>
   )
 }
