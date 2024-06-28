@@ -11,8 +11,6 @@
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
     "fresh": "yarn clean && yarn",
     "postinstall": "manypkg check",
-    "landing:build": "yarn --cwd apps/landing-site build",
-    "landing:dev": "yarn --cwd apps/landing-site dev",
     "site:build": "yarn --cwd apps/site build",
     "site:dev": "yarn --cwd apps/site dev"
   },
