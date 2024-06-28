@@ -1,23 +1,21 @@
 import { useState } from "react"
 import toast from "react-hot-toast"
-import { usePrivy } from "@privy-io/react-auth"
 import { formatEther } from "viem"
 import { BigNumber } from "ethers"
 import { useRouter } from "next/router"
-import { PRICE, ZORA_FEE } from "@/lib/consts"
-import useCanMint from "@/hooks/useCanMint"
+import { CHAIN_ID, PRICE, ZORA_FEE } from "@/lib/consts"
 import useTBAPurchase from "@/hooks/useTBAPurchase"
 import { useTrackMint } from "@/providers/MintProvider"
+import usePrepareForTx from "@/hooks/usePrepareForTransaction"
 
 const MintButton = () => {
-  const { canMint } = useCanMint()
-  const { login } = usePrivy()
   const { purchase } = useTBAPurchase()
   const { push } = useRouter()
   const [minting, setMinting] = useState(false)
   const price = parseFloat(formatEther(BigNumber.from(PRICE).add(ZORA_FEE) as any))
   const { selectedTracks } = useTrackMint()
   const displayPrice = price + selectedTracks.length * price
+  const { prepare } = usePrepareForTx()
 
   const handleSuccessRedirect = (tokenId?: string) => {
     setTimeout(() => {
@@ -42,10 +40,9 @@ const MintButton = () => {
   }
 
   const handleClick = async () => {
-    if (!canMint) {
-      login()
-      return
-    }
+    const prepared = await prepare(CHAIN_ID)
+    if (!prepared) return
+
     setMinting(true)
     const toastId = toast("Purchasing…")
     const receipt = await purchase(selectedTracks)
