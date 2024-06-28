@@ -5,17 +5,19 @@ import { formatEther } from "viem"
 import { BigNumber } from "ethers"
 import { useRouter } from "next/router"
 import { PRICE, ZORA_FEE } from "@/lib/consts"
-import usePurchasePublic from "@/hooks/usePurchasePublic"
 import useCanMint from "@/hooks/useCanMint"
+import useTBAPurchase from "@/hooks/useTBAPurchase"
+import { useTrackMint } from "@/providers/MintProvider"
 
 const MintButton = () => {
   const { canMint } = useCanMint()
   const { login } = usePrivy()
-  const { purchase } = usePurchasePublic()
+  const { purchase } = useTBAPurchase()
   const { push } = useRouter()
   const [minting, setMinting] = useState(false)
   const price = parseFloat(formatEther(BigNumber.from(PRICE).add(ZORA_FEE) as any))
   const displayPrice = price
+  const { selectedTracks } = useTrackMint()
 
   const handleSuccessRedirect = (tokenId?: string) => {
     setTimeout(() => {
@@ -46,7 +48,7 @@ const MintButton = () => {
     }
     setMinting(true)
     const toastId = toast("Purchasing…")
-    const receipt = await purchase(1)
+    const receipt = await purchase(selectedTracks)
     if (receipt) {
       handleSuccess(toastId, receipt)
       return

@@ -1,6 +1,6 @@
 import getRegistryCall from "./tokenbound/getRegistryCall"
 import getSafeTransferFromCall from "./getSafeTransferFromCall"
-import getZoraMintPresaleCall from "./zora/getZoraMintPresaleCall"
+import getZoraMintPublicSaleCall from "./zora/getZoraMintPublicSaleCall"
 
 const getMintMulticallCalls = (
   recipient: `0x${string}`,
@@ -8,9 +8,9 @@ const getMintMulticallCalls = (
   zoraQuantity: number,
 ) => {
   const zoraRegistryCall = getRegistryCall(zoraNextTokenId)
-  const zoraMintCall = getZoraMintPresaleCall(zoraQuantity)
+  const zoraMintCall = getZoraMintPublicSaleCall(zoraQuantity)
   const transferFromCall = getSafeTransferFromCall(recipient, BigInt(zoraNextTokenId))
-  const calls = [zoraMintCall]
+  const calls = [zoraMintCall, zoraRegistryCall, transferFromCall]
   return calls
 }
 

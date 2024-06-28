@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { WalletClient, createWalletClient, custom, Chain } from 'viem'
-import useConnectedWallet from './useConnectedWallet'
-import { CHAIN } from '@/lib/consts'
+import { useEffect, useState } from "react"
+import { WalletClient, createWalletClient, custom, Chain } from "viem"
+import useConnectedWallet from "./useConnectedWallet"
+import { CHAIN } from "@/lib/consts"
 
 const usePrivyWalletClient = (chain: Chain = CHAIN) => {
   const { connectedWallet, wallet } = useConnectedWallet()

@@ -47,7 +47,7 @@ export const TRACKS = [
   },
   {
     collectionAddress: IS_TESTNET
-      ? "0x3d53DbB1c38Aed748869Bc43E4D1A81a88Ec3859"
+      ? "0x986f426060e3a26DDb3c9F4Ce2b3B840123218b5"
       : "0xf836ac93fff3b2ef4cc9c64747fa29dba6805520",
     tokenId: 2,
     chainId: IS_TESTNET ? baseSepolia.id : base.id,

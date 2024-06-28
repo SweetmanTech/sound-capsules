@@ -5,9 +5,8 @@ import useConnectedWallet from "./useConnectedWallet"
 import { Address } from "viem"
 import useCanMint from "./useCanMint"
 import { usePrivy } from "@privy-io/react-auth"
-import { CHAIN, CHAIN_ID, MULTICALL3_ADDRESS } from "@/lib/consts"
+import { CHAIN, MULTICALL3_ADDRESS } from "@/lib/consts"
 import usePrivyWalletClient from "./usePrivyWalletClient"
-import { getPublicClient } from "@/lib/clients"
 import multicallAbi from "@/lib/abi/multicall3.json"
 import usePrivyEthersSigner from "./usePrivyEthersSigner"
 import { Contract } from "ethers"
@@ -23,21 +22,21 @@ const useTBAPurchase = () => {
   const multicallContract = new Contract(MULTICALL3_ADDRESS, multicallAbi, signer)
   const purchase = async (tracks: any) => {
     try {
-        if (!canMint || !walletClient) {
-            login()
-            return
-        }
+      if (!canMint || !walletClient) {
+        login()
+        return
+      }
 
       setLoading(true)
       const prepared = await getPreparedMulticalls(connectedWallet as Address, tracks)
       const { hexValue, calls } = prepared as any
 
-      const transferFromGasFee = 40000 * 1
-      const registryGasFee = 127777 * 1
-
+      const transferFromGasFee = 40_000 * 1
+      const registryGasFee = 127_777 * 1
+      const trackMintGasFee = 100_000 * tracks.length
       const tx = await multicallContract.aggregate3Value(calls, {
         value: hexValue,
-        gasLimit: 300000 + transferFromGasFee + registryGasFee,
+        gasLimit: 300_000 + transferFromGasFee + registryGasFee + trackMintGasFee,
       })
       const receipt = await tx.wait()
       return receipt
