@@ -1,28 +1,30 @@
 import { PageLayout } from "@/components/PageLayout"
-import ButtonLink from "@/components/ButtonLink"
 import MintSection from "@/components/MintSection"
 import Tracks from "./Tracks"
+import Media from "../Media"
 
 const LandingPage = () => {
   return (
     <PageLayout>
-      <div className="max-w-2xl mx-auto space-y-24">
+      <div className="max-w-2xl mx-auto space-y-12">
         <section className="flex flex-col items-center space-y-8 text-center">
-          <h1 className="font-size-headline text-black">
-            A simple audio player for creating token bound playlists
-          </h1>
-          <ButtonLink href={process.env.NEXT_PUBLIC_OPENSEA} variant="secondary" target="_blank">
-            View collection
-          </ButtonLink>
+          <h1 className="font-size-headline text-black">Sounds of summer</h1>
         </section>
         <section>
-          <video className="rounded-2xl" controls={false} playsInline loop autoPlay muted>
-            <source src="/capsule-preview.mp4" type="video/mp4" />
-          </video>
+          <Media
+            link="/images/home-hero.svg"
+            blurLink="/images/home-hero.svg"
+            containerClasses="w-[660px] aspect-square"
+          />
+          <div className="flex gap-2 justify-center mt-4">
+            <div className="bg-brown-light w-10 aspect-square rounded-full" />
+            <div className="bg-yello w-10 aspect-square rounded-full" />
+            <div className="bg-purple w-10 aspect-square rounded-full" />
+            <div className="bg-brown w-10 aspect-square rounded-full" />
+            <div className="bg-gray w-10 aspect-square rounded-full" />
+          </div>
         </section>
-        <section>
-          <MintSection />
-        </section>
+        <MintSection />
       </div>
       <Tracks />
     </PageLayout>

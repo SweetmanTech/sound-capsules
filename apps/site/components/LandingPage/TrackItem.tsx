@@ -1,11 +1,23 @@
-import TrackPlayer from "../TrackPlayer"
+import TrackImage from "./TrackImage"
+import formatTime from "@/lib/formatTime"
 import AddTrackButton from "./AddTrackButton"
+import useMusicDuration from "@/hooks/useMusicDuration"
+import { useTrackMint } from "@/providers/MintProvider"
 
-const TrackItem = ({ track }: any) => (
-  <div className="space-y-2 relative">
-    <TrackPlayer track={track} />
-    <AddTrackButton />
-  </div>
-)
+const TrackItem = ({ track }: any) => {
+  const { duration } = useMusicDuration(track?.meta?.animationUrl)
+  const { trackSelect } = useTrackMint()
+
+  return (
+    <div className="space-y-2 relative">
+      <TrackImage track={track} />
+      <div className="space-y-2">
+        <span className="block text-black truncate text-[16px]">{track.meta.name}</span>
+        <span className="block font-size-small text-purple">{formatTime(duration) || "-"}</span>
+      </div>
+      <AddTrackButton track={track} />
+    </div>
+  )
+}
 
 export default TrackItem
