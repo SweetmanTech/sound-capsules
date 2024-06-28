@@ -1,13 +1,13 @@
+import { Address } from "viem"
 import { getPublicClient } from "./clients"
-import { CHAIN_ID } from "./consts"
-import abi from "@/lib/abi/zora-erc721-drop.json"
+import abi from "@/lib/abi/zora-1155-drop.json"
 
-const getTokenURI = async (tokenId: any) => {
-  const publicClient = getPublicClient(CHAIN_ID)
+const getTokenURI = async (collection: Address, tokenId: any, chainId: number) => {
+  const publicClient = getPublicClient(chainId)
   const response = (await publicClient.readContract({
-    address: process.env.NEXT_PUBLIC_DROP as `0x${string}`,
+    address: collection,
     abi,
-    functionName: "tokenURI",
+    functionName: "uri",
     args: [tokenId],
   })) as string
   return response.toString()

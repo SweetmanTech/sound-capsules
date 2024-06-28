@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import TrackPlayer from "../TrackPlayer.tsx/TrackPlayer"
+import TrackPlayer from "../TrackPlayer"
 import TransferInButton from "../TransferInButton"
 import RemoveTrackButton from "../RemoveTrackButton"
 

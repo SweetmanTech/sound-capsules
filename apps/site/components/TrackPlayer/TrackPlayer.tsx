@@ -11,8 +11,8 @@ const TrackPlayer = ({ track }: any) => {
       <>
         <TrackImage track={track} />
         <div className="space-y-2">
-          <span className="block text-black truncate">{track.meta.name}</span>
-          <span className="block font-size-small">{formatTime(duration) || "-"}</span>
+          <span className="block text-black truncate text-[16px]">{track.meta.name}</span>
+          <span className="block font-size-small text-purple">{formatTime(duration) || "-"}</span>
         </div>
       </>
     </Fragment>
