@@ -5,17 +5,19 @@ import { BigNumber } from "ethers"
 import { useRouter } from "next/router"
 import { usePrivy } from "@privy-io/react-auth"
 import { PRESALE_PRICE, ZORA_FEE } from "@/lib/consts"
-import useZoraPurchasePresale from "@/hooks/useZoraPurchasePresale"
 import useCanMint from "@/hooks/useCanMint"
+import useTBAPurchase from "@/hooks/useTBAPurchase"
+import { useTrackMint } from "@/providers/MintProvider"
 
 const FreeMintButton = () => {
   const { canMint } = useCanMint()
   const { login } = usePrivy()
-  const { purchase } = useZoraPurchasePresale()
+  const { purchase } = useTBAPurchase()
   const { push } = useRouter()
   const [minting, setMinting] = useState(false)
   const price = parseFloat(formatEther(BigNumber.from(PRESALE_PRICE).add(ZORA_FEE) as any))
   const displayPrice = price
+  const { selectedTracks } = useTrackMint()
 
   const handleSuccessRedirect = (tokenId?: string) => {
     setTimeout(() => {
@@ -46,11 +48,11 @@ const FreeMintButton = () => {
     }
     setMinting(true)
     const toastId = toast("Purchasing…")
-    const receipt = await purchase(1)
-    if (receipt) {
-      handleSuccess(toastId, receipt)
-      return
-    }
+    const receipt = await purchase(selectedTracks)
+    // if (receipt) {
+    //   handleSuccess(toastId, receipt)
+    //   return
+    // }
     toast("Error. Try again.", {
       id: toastId,
     })
