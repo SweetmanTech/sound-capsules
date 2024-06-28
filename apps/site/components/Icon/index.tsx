@@ -1,11 +1,5 @@
+import { IIcon } from "@/types/IIcon"
 import { Icons } from "./resolver"
-
-type IIcon = {
-  name: keyof typeof Icons
-  color?: string
-  size: number
-  className?: string
-}
 
 function Icon({ name, size, color, className }: IIcon) {
   const IconSVG = Icons[name] as any
