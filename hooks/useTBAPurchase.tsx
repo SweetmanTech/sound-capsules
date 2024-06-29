@@ -43,7 +43,7 @@ const useTBAPurchase = () => {
     } catch (err) {
       setLoading(false)
       handleTxError(err)
-      return { error: err }
+      return false
     }
   }
 

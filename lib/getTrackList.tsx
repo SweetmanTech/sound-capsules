@@ -21,6 +21,7 @@ const getTrackList = async () => {
         contractAddress: track.collectionAddress,
         chainId: track.chainId,
         type: "ERC1155",
+        price: track.price,
       },
     }
   })
