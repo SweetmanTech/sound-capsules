@@ -31,7 +31,6 @@ const getZoraMintWithRewardsCall = (
   })
 
   const value = ZORA_FEE + price
-
   return {
     target: collectionAddress,
     value,
