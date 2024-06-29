@@ -13,6 +13,7 @@ export type Track = {
     type: string
     chainId?: number
     editions?: number
+    price: bigint
   }
 }
 

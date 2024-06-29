@@ -29,6 +29,7 @@ const useTBAPurchase = () => {
 
       setLoading(true)
       const prepared = await getPreparedMulticalls(connectedWallet as Address, tracks)
+
       const { hexValue, calls } = prepared as any
 
       const transferFromGasFee = 40_000 * 1
@@ -43,7 +44,7 @@ const useTBAPurchase = () => {
     } catch (err) {
       setLoading(false)
       handleTxError(err)
-      return { error: err }
+      return false
     }
   }
 

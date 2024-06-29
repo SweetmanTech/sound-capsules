@@ -1,20 +1,19 @@
 import { useState } from "react"
 import toast from "react-hot-toast"
-import { formatEther } from "viem"
-import { BigNumber } from "ethers"
 import { useRouter } from "next/router"
-import { CHAIN_ID, PRICE, ZORA_FEE } from "@/lib/consts"
+import { formatEther } from "viem"
+import { CHAIN_ID } from "@/lib/consts"
 import useTBAPurchase from "@/hooks/useTBAPurchase"
 import { useTrackMint } from "@/providers/MintProvider"
 import usePrepareForTx from "@/hooks/usePrepareForTransaction"
+import getDisplayPrice from "@/lib/getDisplayPrice"
 
 const MintButton = () => {
   const { purchase } = useTBAPurchase()
   const { push } = useRouter()
   const [minting, setMinting] = useState(false)
-  const price = parseFloat(formatEther(BigNumber.from(PRICE).add(ZORA_FEE) as any))
   const { selectedTracks } = useTrackMint()
-  const displayPrice = price + selectedTracks.length * price
+  const displayPrice = getDisplayPrice(selectedTracks)
   const { prepare } = usePrepareForTx()
 
   const handleSuccessRedirect = (tokenId?: string) => {
@@ -62,7 +61,7 @@ const MintButton = () => {
       onClick={handleClick}
       className="block w-full bg-black text-white font-size-body py-4 px-6 rounded-xl"
     >
-      {minting ? "Minting..." : `Mint · ${displayPrice.toFixed(4)} ETH`}
+      {minting ? "Minting..." : `Mint · ${parseFloat(formatEther(displayPrice)).toFixed(4)} ETH`}
     </button>
   )
 }
