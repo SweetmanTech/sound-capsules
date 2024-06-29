@@ -6,9 +6,17 @@ const Tracks = () => {
   const { tracks, loading } = useTracks()
 
   return (
-    <section className="px-8 mt-12">
-      <p className="text-2xl text-black font-medium">Add Songs</p>
-      <p>{`[i] You can add, edit, or remove songs at anytime`}</p>
+    <section className="max-w-screen-2xl mx-auto space-y-24 px-8 py-24 mt-48">
+      <div className="max-w-xl mx-auto flex flex-col items-center space-y-8 text-center">
+        <h2 className="font-size-home-subtitle">
+          <span>Make your mix</span>
+        </h2>
+        <p>
+          <strong className="text-black">How does it work?</strong> Mint audio NFTs directly to your
+          playlist NFT in a single transaction. Once your playlist in minted, you can add, edit, or
+          remove audio NFTs at anytime.
+        </p>
+      </div>
       <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-6">
         {loading ? (
           <div className="col-span-5 flex justify-center mt-3">

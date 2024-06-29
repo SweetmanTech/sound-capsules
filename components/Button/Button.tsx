@@ -2,6 +2,7 @@ import { MouseEventHandler, PropsWithChildren } from "react"
 
 export const variantMap = {
   primary: "bg-black text-white text-2xl py-3 px-6 rounded-full",
+  primarySmall: "bg-black text-white py-2 px-4 rounded-2xl",
   secondary: "py-2 px-4 bg-gray-light text-black rounded-2xl",
 }
 

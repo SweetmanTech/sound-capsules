@@ -20,8 +20,11 @@ module.exports = {
           DEFAULT: "#CE5347",
           light: "#EE866B",
         },
-        yello: {
+        yellow: {
           DEFAULT: "#C1FF8B",
+        },
+        navy: {
+          DEFAULT: "#16294D",
         },
       },
     },

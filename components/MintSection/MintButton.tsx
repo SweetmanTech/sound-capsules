@@ -62,7 +62,7 @@ const MintButton = () => {
       onClick={handleClick}
       className="block w-full bg-black text-white font-size-body py-4 px-6 rounded-xl"
     >
-      {minting ? "Minting..." : `Mint ${displayPrice.toFixed(4)} ETH`}
+      {minting ? "Minting..." : `Mint · ${displayPrice.toFixed(4)} ETH`}
     </button>
   )
 }

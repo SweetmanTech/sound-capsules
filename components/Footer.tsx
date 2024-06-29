@@ -8,17 +8,11 @@ export function Footer() {
       <nav>
         <ul className="flex gap-5">
           <li>
-            <NavLink href={process.env.NEXT_PUBLIC_TWITTER!}>Follow</NavLink>
-          </li>
-          <li>
-            <NavLink href={process.env.NEXT_PUBLIC_OPENSEA!}>OpenSea</NavLink>
-          </li>
-          <li>
-            <NavLink href="/about">About</NavLink>
+            <NavLink href="https://github.com/SweetmanTech/sound-capsules">Source</NavLink>
           </li>
         </ul>
       </nav>
-      <span>for club use only</span>
+      <span>for demo use only</span>
     </footer>
   )
 }
@@ -29,6 +23,7 @@ function NavLink(props: PropsWithChildren<LinkProps>) {
   return (
     <Link
       {...props}
+      rel="vf"
       aria-current={isActive ? "page" : undefined}
       className={[isActive ? "text-black" : ""].join(" ")}
     />

@@ -1,3 +1,4 @@
+import Button from "@/components/Button"
 import { useTrackMint } from "@/providers/MintProvider"
 
 const AddTrackButton = ({ track }: any) => {
@@ -5,13 +6,9 @@ const AddTrackButton = ({ track }: any) => {
   const isSelected = selectedTracks.findIndex((item: any) => item.src === track.src) >= 0
 
   return (
-    <button
-      type="button"
-      className="bg-black text-white px-4 py-1 rounded-xl"
-      onClick={() => trackSelect(track)}
-    >
-      {isSelected ? "Added" : "Add+"}
-    </button>
+    <Button variant={isSelected ? "secondary" : "primarySmall"} onClick={() => trackSelect(track)}>
+      {isSelected ? "Remove" : "Add +"}
+    </Button>
   )
 }
 
