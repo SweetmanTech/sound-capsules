@@ -1,6 +1,6 @@
-import { TRACKS } from "./consts"
 import getTokenURI from "./getTokenURI"
 import getZoraIpfsLink from "./ipfs/getZoraIpfsLink"
+import { TRACKS } from "./tracks"
 
 const getTrackList = async () => {
   const trackPromise = TRACKS.map(async (track: any) => {
