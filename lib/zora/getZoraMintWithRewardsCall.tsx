@@ -9,6 +9,7 @@ const getZoraMintWithRewardsCall = (
   collectionAddress: Address,
   mintRecipient: Address,
   id: any,
+  price: bigint,
 ) => {
   const tokenId = BigInt(id)
   const quantity = BigInt(1)
@@ -29,9 +30,10 @@ const getZoraMintWithRewardsCall = (
     ],
   })
 
+  const value = ZORA_FEE + price
   return {
     target: collectionAddress,
-    value: ZORA_FEE,
+    value,
     allowFailure: false,
     callData: mintData,
   }

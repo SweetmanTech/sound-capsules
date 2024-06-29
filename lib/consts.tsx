@@ -1,5 +1,5 @@
 import { baseSepolia, base } from "viem/chains"
-import { Address } from "viem"
+import { Address, parseEther } from "viem"
 
 export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = IS_TESTNET ? baseSepolia : base
@@ -13,8 +13,8 @@ export const CAPSULE_DROP_ADDRESS = process.env.NEXT_PUBLIC_DROP as Address
 export const ACCOUNT_IMPLEMENTATION = "0x41C8f39463A868d3A88af00cd0fe7102F30E44eC"
 export const SALT = "0"
 export const SALT_BYTES = "0x0000000000000000000000000000000000000000000000000000000000000000"
-export const ZORA_FEE = "777000000000000"
-export const PRICE = "0"
+export const ZORA_FEE = parseEther("0.000777")
+export const PRICE = parseEther("0")
 export const PRESALE_PRICE = "0"
 export const COMMENT = "((d[-_-]b))"
 export const OPENSEA_COLLECTION_URL = `https://${IS_TESTNET ? "testnets." : ""}opensea.io/assets/${

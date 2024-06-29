@@ -1,11 +1,11 @@
 import { BigNumber } from "ethers"
+import { Address } from "viem"
 import { ZORA_FEE } from "./consts"
 import getAccount from "./tokenbound/getAccount"
 import getInitializeCall from "./tokenbound/getInitializeCall"
 import getZoraNextTokenId from "./zora/getZoraNextTokenId"
 import getMintMulticallCalls from "./getMintMulticallCalls"
 import getZoraMintWithRewardsCall from "./zora/getZoraMintWithRewardsCall"
-import { Address } from "viem"
 
 const getPreparedMulticalls = async (signingAddress: Address, tracks: any) => {
   const zoraPrice = BigNumber.from(ZORA_FEE)
@@ -19,7 +19,7 @@ const getPreparedMulticalls = async (signingAddress: Address, tracks: any) => {
   const tbaInitializationCall = getInitializeCall(tba)
 
   const zoraTracksCalls = tracks.map((track: any) =>
-    getZoraMintWithRewardsCall(track.token.contractAddress, tba, track.token.id),
+    getZoraMintWithRewardsCall(track.token.contractAddress, tba, track.token.id, track.token.price),
   )
   const zoraTrackCallsValue = zoraTracksCalls.reduce(
     (acc: BigNumber, cur: any) => acc.add(cur.value),

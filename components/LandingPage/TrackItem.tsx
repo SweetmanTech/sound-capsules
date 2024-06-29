@@ -1,6 +1,6 @@
 import TrackImage from "./TrackImage"
-import formatTime from "@/lib/formatTime"
 import AddTrackButton from "./AddTrackButton"
+import formatTime from "@/lib/formatTime"
 import useMusicDuration from "@/hooks/useMusicDuration"
 
 const TrackItem = ({ track }: any) => {
