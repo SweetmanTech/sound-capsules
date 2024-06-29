@@ -8,6 +8,7 @@ const useTracks = () => {
   useEffect(() => {
     const init = async () => {
       const tracklist = await getTrackList()
+      console.log("SWEETS tracklist", tracklist)
       setTracks(tracklist)
       setLoading(false)
     }
