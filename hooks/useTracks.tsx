@@ -1,8 +1,5 @@
-import { TRACKS } from "@/lib/consts"
-import getTokenURI from "@/lib/getTokenURI"
-import getTrackList from "@/lib/getTrackList"
-import getZoraIpfsLink from "@/lib/ipfs/getZoraIpfsLink"
 import { useEffect, useState } from "react"
+import getTrackList from "@/lib/getTrackList"
 
 const useTracks = () => {
   const [tracks, setTracks] = useState<any>([])
