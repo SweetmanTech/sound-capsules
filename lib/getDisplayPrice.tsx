@@ -5,7 +5,7 @@ const getDisplayPrice = (selectedTracks: Track[]) => {
   const capsulePrice = PRICE + ZORA_FEE
   let tracksTotalPrice = BigInt(0)
   selectedTracks.forEach((track) => {
-    tracksTotalPrice += track.token.price + ZORA_FEE
+    tracksTotalPrice += track.sale.price + ZORA_FEE
   })
   return capsulePrice + tracksTotalPrice
 }

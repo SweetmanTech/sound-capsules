@@ -19,7 +19,7 @@ const getPreparedMulticalls = async (signingAddress: Address, tracks: any) => {
   const tbaInitializationCall = getInitializeCall(tba)
 
   const zoraTracksCalls = tracks.map((track: any) =>
-    getZoraMintWithRewardsCall(track.token.contractAddress, tba, track.token.id, track.token.price),
+    getZoraMintWithRewardsCall(track.token.contractAddress, tba, track.token.id, track.sale.price),
   )
   const zoraTrackCallsValue = zoraTracksCalls.reduce(
     (acc: BigNumber, cur: any) => acc.add(cur.value),

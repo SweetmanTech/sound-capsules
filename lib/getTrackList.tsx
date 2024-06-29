@@ -34,10 +34,12 @@ const getTrackList = async () => {
           contractAddress: track.collectionAddress,
           chainId: track.chainId,
           type: "ERC1155",
+        },
+        sale: {
           price: track.price,
           pricePerToken: multicallResults[index + TRACKS.length].result.pricePerToken,
           totalMinted: multicallResults[index].result.totalMinted,
-          publicSaleEnd: multicallResults[index + TRACKS.length].result.saleEnd,
+          saleEnd: multicallResults[index + TRACKS.length].result.saleEnd,
         },
       } as Track
     })

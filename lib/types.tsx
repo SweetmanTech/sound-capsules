@@ -15,10 +15,12 @@ export type Track = {
     type: string
     chainId?: number
     editions?: number
+  }
+  sale: {
     price: bigint
     pricePerToken: bigint
     totalMinted: bigint
-    publicSaleEnd: bigint
+    saleEnd: bigint
   }
 }
 
