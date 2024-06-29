@@ -16,7 +16,7 @@ const TrackImage = ({ track }: { track: Track }) => {
     <div className="relative w-full aspect-[1/1]">
       <button
         type="button"
-        className={`w-full h-full p-0.5 rounded-2xl overflow-hidden border-[2px] ${isSelected ? "border-gray" : "border-white"}`}
+        className={`w-full h-full p-0.5 rounded-2xl overflow-hidden`}
         onClick={() => trackSelect(track)}
       >
         <img

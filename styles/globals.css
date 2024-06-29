@@ -3,67 +3,112 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: nb;
-	src: url('/fonts/nbinternationalproreg-webfont.eot');
-	src:
-		url('/fonts/nbinternationalproreg-webfont.eot?#iefix')
-			format('embedded-opentype'),
-		url('/fonts/nbinternationalproreg-webfont.woff2') format('woff2'),
-		url('/fonts/nbinternationalproreg-webfont.woff') format('woff'),
-		url('/fonts/nbinternationalproreg-webfont.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+  font-family: m;
+  src: url("/fonts/font.woff");
+  src: url("/fonts/font.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: nb;
+  src: url("/fonts/nbinternationalproreg-webfont.eot");
+  src: url("/fonts/nbinternationalproreg-webfont.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/nbinternationalproreg-webfont.woff2") format("woff2"),
+    url("/fonts/nbinternationalproreg-webfont.woff") format("woff"),
+    url("/fonts/nbinternationalproreg-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @layer components {
-	html {
-		scrollbar-gutter: stable;
-	}
+  html {
+    scrollbar-gutter: stable;
+  }
 
-	body {
-		font-size: 1.125rem;
-		line-height: 1.25;
-		@apply text-gray;
-	}
+  body {
+    font-size: 1.125rem;
+    line-height: 1.25;
+    @apply text-gray;
+  }
 
-	a,
-	button {
-		@apply focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500;
-	}
-}
+  html,
+  body {
+    overflow-x: hidden;
+  }
 
-/** Typography */
+  a,
+  button {
+    @apply focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500;
+  }
 
-body {
-	font-size: 1.125rem;
-	line-height: 1.5;
-}
+  /** Typography */
 
-.font-size-headline {
-	font-size: 2rem;
-	line-height: 1.25;
-}
+  body {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
 
-@media screen and (min-width: 768px) {
-	.font-size-headline {
-		font-size: 2.7rem;
-	}
-}
+  .font-size-headline {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
 
-.font-size-text {
-	font-size: 1.5rem;
-	line-height: 1.25;
-}
+  @media screen and (min-width: 768px) {
+    .font-size-headline {
+      font-size: 2.7rem;
+    }
+  }
 
-.font-size-small {
-	font-size: 0.875rem;
-	line-height: 1.25;
-}
+  .font-size-home-title {
+    @apply text-navy;
+    font-family: m, monospace;
+    font-weight: normal;
+    font-size: 6rem;
+    line-height: 0.8;
+    & span {
+      @apply inline bg-yellow;
+    }
+  }
 
-.line-height-1 {
-	line-height: 1;
-}
+  @media screen and (min-width: 768px) {
+    .font-size-home-title {
+      font-size: 8rem;
+    }
+  }
 
-.line-height-1-5 {
-	line-height: 1.5;
+  .font-size-home-subtitle {
+    @apply text-navy;
+    font-family: m, monospace;
+    font-weight: normal;
+    font-size: 4rem;
+    line-height: 0.8;
+    & span {
+      @apply inline bg-yellow;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .font-size-home-subtitle {
+      font-size: 6rem;
+    }
+  }
+
+  .font-size-text {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .font-size-small {
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .line-height-1 {
+    line-height: 1;
+  }
+
+  .line-height-1-5 {
+    line-height: 1.5;
+  }
 }

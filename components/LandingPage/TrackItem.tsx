@@ -2,11 +2,9 @@ import TrackImage from "./TrackImage"
 import formatTime from "@/lib/formatTime"
 import AddTrackButton from "./AddTrackButton"
 import useMusicDuration from "@/hooks/useMusicDuration"
-import { useTrackMint } from "@/providers/MintProvider"
 
 const TrackItem = ({ track }: any) => {
   const { duration } = useMusicDuration(track?.meta?.animationUrl)
-  const { trackSelect } = useTrackMint()
 
   return (
     <div className="space-y-2 relative">
