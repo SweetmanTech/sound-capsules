@@ -17,9 +17,9 @@ export const ZORA_FEE = "777000000000000"
 export const PRICE = "0"
 export const PRESALE_PRICE = "0"
 export const COMMENT = "((d[-_-]b))"
-export const OPENSEA_COLLECTION_URL = `https://${
-  IS_TESTNET ? "testnets." : ""
-}opensea.io/assets/${IS_TESTNET ? "base-sepolia" : "base"}/${process.env.NEXT_PUBLIC_DROP}`
+export const OPENSEA_COLLECTION_URL = `https://${IS_TESTNET ? "testnets." : ""}opensea.io/assets/${
+  IS_TESTNET ? "base-sepolia" : "base"
+}/${process.env.NEXT_PUBLIC_DROP}`
 
 // Catalog
 export const CATALOGCOSIGN_ADDRESS = IS_TESTNET
@@ -29,27 +29,3 @@ export const CATALOGCOSIGN_ADDRESS = IS_TESTNET
 export const gateways = ["cloudflare-ipfs.com", "nftstorage.link", "ipfs.io"]
 
 export const ZORA_IPFS_GATEWAY = "magic.decentralized-content.com"
-
-export const TRACKS = [
-  {
-    collectionAddress: IS_TESTNET
-      ? "0xb875B5Cc6587ab6c898a972F70d7b657399F8554"
-      : "0xf33d28304ba8ff1886ae84ea3f68c055d46c78fa",
-    tokenId: 1,
-    chainId: IS_TESTNET ? baseSepolia.id : base.id,
-  },
-  {
-    collectionAddress: IS_TESTNET
-      ? "0x8dBb68049bf9485659Af562C44C1aE585e6C9986"
-      : "0xf33d28304ba8ff1886ae84ea3f68c055d46c78fa",
-    tokenId: 1,
-    chainId: IS_TESTNET ? baseSepolia.id : base.id,
-  },
-  {
-    collectionAddress: IS_TESTNET
-      ? "0x986f426060e3a26DDb3c9F4Ce2b3B840123218b5"
-      : "0xf836ac93fff3b2ef4cc9c64747fa29dba6805520",
-    tokenId: 2,
-    chainId: IS_TESTNET ? baseSepolia.id : base.id,
-  },
-]
