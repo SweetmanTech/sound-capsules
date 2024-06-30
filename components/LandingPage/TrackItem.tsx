@@ -1,16 +1,15 @@
+import { formatEther } from "viem"
 import TrackImage from "./TrackImage"
 import AddTrackButton from "./AddTrackButton"
 import formatTime from "@/lib/formatTime"
 import useMusicDuration from "@/hooks/useMusicDuration"
 import { Track } from "@/lib/types"
 import { ZORA_FEE } from "@/lib/consts"
-import { formatEther } from "viem"
 import getFormatSaleEnd from "@/lib/zora/getFormattedSaleEnd"
 
 const TrackItem = ({ track }: { track: Track }) => {
   const { duration } = useMusicDuration(track?.meta?.animationUrl)
 
-  console.log("SWEETS track", track)
   return (
     <div className="space-y-2 relative">
       <TrackImage track={track} />
