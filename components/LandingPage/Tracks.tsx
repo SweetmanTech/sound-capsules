@@ -1,6 +1,6 @@
-import useTracks from "@/hooks/useTracks"
-import TrackItem from "./TrackItem"
 import Loading from "react-loading"
+import TrackItem from "./TrackItem"
+import useTracks from "@/hooks/useTracks"
 
 const Tracks = () => {
   const { tracks, loading } = useTracks()

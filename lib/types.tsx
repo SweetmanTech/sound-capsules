@@ -1,3 +1,5 @@
+import { Address } from "viem"
+
 export type Track = {
   src: string
   meta: {
@@ -8,13 +10,25 @@ export type Track = {
     animationUrl: string
   }
   token: {
-    id: string
-    contractAddress: string
+    id: number
+    contractAddress: Address
     type: string
     chainId?: number
     editions?: number
-    price: bigint
   }
+  sale: {
+    price: bigint
+    pricePerToken: bigint
+    totalMinted: bigint
+    saleEnd: bigint
+  }
+}
+
+export type CollectionInfo = {
+  collectionAddress: Address
+  tokenId: number
+  chainId: number
+  price: bigint
 }
 
 export type Capsule = {

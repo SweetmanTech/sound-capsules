@@ -66,7 +66,7 @@ export default function About() {
             <li>
               <a
                 className="inline-block py-2 px-4 bg-gray-light text-black rounded-2xl"
-                href={`${CHAIN.blockExplorers.default.url}/address/${CAPSULE_DROP_ADDRESS}`!}
+                href={`${CHAIN?.blockExplorers?.default?.url}/address/${CAPSULE_DROP_ADDRESS}`!}
                 target="_blank"
               >
                 Contract

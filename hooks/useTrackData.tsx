@@ -13,10 +13,11 @@ const useTrackData = (track: Track, inCapsule: boolean) => {
   const [editions, setEditions] = useState(0)
   const { duration } = useMusicDuration(track.meta.animationUrl)
   const hasTrack = (is721 || editions > 0) && duration
+  const tokenIdString = track?.token?.id?.toString()
 
   const token721Owned = async (chainId: number) => {
     if (track?.token?.type !== "ERC721") return
-    const owner = await get721OwnerOf(track.token.contractAddress, track.token.id, chainId)
+    const owner = await get721OwnerOf(track.token.contractAddress, tokenIdString, chainId)
     setIs721(inCapsule ? owner === capsuleAddress : owner === connectedWallet)
   }
 
@@ -25,7 +26,7 @@ const useTrackData = (track: Track, inCapsule: boolean) => {
     const editions = await getBalanceOf(
       track.token.contractAddress,
       inCapsule ? capsuleAddress : connectedWallet,
-      track?.token?.id,
+      tokenIdString,
       chainId,
     )
     setEditions(editions)

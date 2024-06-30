@@ -1,5 +1,6 @@
 import { parseEther } from "viem"
 import { CHAIN_ID, IS_TESTNET } from "./consts"
+import { CollectionInfo } from "./types"
 
 const TESTNET_TRACKS = [
   {
@@ -20,7 +21,7 @@ const TESTNET_TRACKS = [
     chainId: CHAIN_ID,
     price: parseEther("0"),
   },
-]
+] as CollectionInfo[]
 
 const MAINNET_TRACKS = [
   {
@@ -53,6 +54,6 @@ const MAINNET_TRACKS = [
     chainId: CHAIN_ID,
     price: parseEther("0"),
   },
-]
+] as CollectionInfo[]
 
 export const TRACKS = IS_TESTNET ? TESTNET_TRACKS : MAINNET_TRACKS
