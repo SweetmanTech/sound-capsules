@@ -1,6 +1,6 @@
 import NextImage from "next/image"
-import logoBase from "../../public/base-logo.svg"
-import logoZora from "../../public/zora-logo.svg"
+import logoBase from "@/public/base-logo.svg"
+import logoZora from "@/public/zora-logo.svg"
 
 const HeroSection = () => (
   <section className="max-w-xl mx-auto flex flex-col items-center space-y-8 text-center">
