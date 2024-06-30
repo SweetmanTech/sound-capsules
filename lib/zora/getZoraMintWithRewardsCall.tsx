@@ -22,7 +22,7 @@ const getZoraMintWithRewardsCall = (
     abi,
     functionName: "mintWithRewards",
     args: [
-      zoraCreatorFixedPriceSaleStrategyAddress[CHAIN_ID],
+      zoraCreatorFixedPriceSaleStrategyAddress[CHAIN_ID as 8453 | 84532],
       tokenId,
       quantity,
       minterArguments,
