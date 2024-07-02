@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next"
 import metadataByTokenId from "@/lib/metadataByTokenId"
 
 async function getMetadata(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-  console.log("SWEETMAN: getMetadata")
   const tokenId = req.query.tokenId as string
 
   if (!tokenId) {
