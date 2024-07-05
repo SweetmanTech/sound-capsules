@@ -1,15 +1,19 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import metadataByTokenId from "@/lib/metadataByTokenId"
+import { Address } from "viem"
+import getMetadata from "@/lib/getMetadata"
 
-async function getMetadata(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-  const tokenId = req.query.tokenId as string
+async function getResponse(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+  const { tokenId, contractAddress, chainId } = req.query
 
+  console.log("SWEETS tokenId", tokenId)
+  console.log("SWEETS contractAddress", contractAddress)
+  console.log("SWEETS chainId", chainId)
   if (!tokenId) {
     res.status(400).json({ error: "TokenId is required" })
     return
   }
 
-  const metadata = metadataByTokenId(tokenId)
+  const metadata = getMetadata(chainId as string, contractAddress as Address, tokenId as string)
   if (!metadata) {
     res.status(404).json({ error: "Metadata not found" })
     return
@@ -20,7 +24,7 @@ async function getMetadata(req: NextApiRequest, res: NextApiResponse): Promise<v
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   if (req.method === "GET") {
-    return getMetadata(req, res)
+    return getResponse(req, res)
   }
 
   res.setHeader("Allow", ["GET"])
