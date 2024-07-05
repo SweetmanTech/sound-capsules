@@ -5,9 +5,6 @@ import getMetadata from "@/lib/getMetadata"
 async function getResponse(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   const { tokenId, contractAddress, chainId } = req.query
 
-  console.log("SWEETS tokenId", tokenId)
-  console.log("SWEETS contractAddress", contractAddress)
-  console.log("SWEETS chainId", chainId)
   if (!tokenId) {
     res.status(400).json({ error: "TokenId is required" })
     return
